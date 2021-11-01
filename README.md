@@ -14,11 +14,10 @@
 
 ## Demo
 
-Code provided in **Example** folder.
+Code provided in **example** folder.
 
 ## Usage
 
-#### Simple usage
 
 
 ```js
@@ -48,6 +47,7 @@ const Sample = () => {
     </View>
   )
 }
+...
 ```
 
 
