@@ -23,7 +23,7 @@ Code provided in **Example** folder.
 
 ```js
 ...
-import AutoRecyclerListView, {ListAutoRenderItem} from 'react-native-autorecyclerlistview'
+import AutoRecyclerListView, { ListAutoRenderItem } from 'react-native-autorecyclerlistview'
 
 const Sample = () => {
   const [data, setData] = useState<string[]>([])
@@ -36,14 +36,14 @@ const Sample = () => {
 
   const _renderItem: ListAutoRenderItem<string> = ({ item, index }) => {
     return (
-      <View style={{ flex: 1 }}>
+      <View>
         <Text children={item} />
       </View>
     )
   }
 
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <AutoRecyclerListView data={data} renderItem={_renderItem} />
     </View>
   )

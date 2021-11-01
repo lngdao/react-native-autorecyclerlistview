@@ -1,6 +1,6 @@
 {
   "name": "react-native-autorecyclerlistview",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "AutoRecyclerListView inspired by recyclerListView and react-native-autoscroll-flatlist",
   "homepage": "https://github.com/lngthd/react-native-autorecyclerlistview#readme",
   "main": "lib/index.js",
