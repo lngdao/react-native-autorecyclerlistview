@@ -1,7 +1,8 @@
+import { Ref } from 'react'
 import { TextStyle, ViewStyle } from 'react-native'
 import { BaseDataProvider, BaseLayoutProvider } from 'recyclerlistview'
 
-export interface AutoRecyclerListViewProps<T extends unknown> {
+export type AutoRecyclerListViewProps<T> = {
   data: T[]
   renderItem: ({
     item,
