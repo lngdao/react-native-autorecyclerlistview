@@ -1,4 +1,4 @@
-import { Ref } from 'react'
+import React, { Ref } from 'react'
 import { TextStyle, ViewStyle } from 'react-native'
 import { BaseDataProvider, BaseLayoutProvider } from 'recyclerlistview'
 
@@ -8,7 +8,7 @@ export type AutoRecyclerListViewProps<T> = {
     item,
     index,
   }: {
-    item: T
+    item: any
     index: number
   }) => React.ReactElement
   autoScroll?: boolean
@@ -35,3 +35,11 @@ export type AutoRecyclerListViewHandler = {
   scrollToTop: () => void
   clearTimeDelay: () => void
 }
+
+export type ListAutoRenderItem<T> = ({
+  item,
+  index,
+}: {
+  item: T
+  index: number
+}) => React.ReactElement

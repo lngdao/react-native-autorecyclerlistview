@@ -1,6 +1,5 @@
 import * as React from 'react'
 import {
-  forwardRef,
   useEffect,
   useImperativeHandle,
   useMemo,
@@ -38,12 +37,12 @@ import {
 // TODO: Animation new item popup [√]
 // TODO: Update props [√]
 // TODO: Split type.ts file [√]
+// TODO: Add readme [X]
+// TODO: Add comment [X]
 // TODO: Refactor [X]
 
-declare module 'react' {
-  function forwardRef<T, P = {}>(
-    render: (props: P, ref: React.Ref<T>) => React.ReactElement | null
-  ): (props: P & React.RefAttributes<T>) => React.ReactElement | null
+type AutoRecyclerListViewWithRefProp<T> = AutoRecyclerListViewProps<T> & {
+  ref?: Ref<AutoRecyclerListViewHandler>
 }
 
 const { width } = Dimensions.get('window')
@@ -51,12 +50,12 @@ const { width } = Dimensions.get('window')
 const DEFAULT_DELAY = 0
 const MAX_ITEM = 200
 
-const dataProviderMaker = (data: any) =>
+const dataProviderMaker = <T,>(data: Array<T>) =>
   new DataProvider((r1, r2) => !_.isEqual(r1, r2)).cloneWithRows(data)
 
 function AutoRecyclerListViewComponent<T>(
   props: AutoRecyclerListViewProps<T>,
-  ref: React.ForwardedRef<AutoRecyclerListViewHandler>
+  ref?: React.ForwardedRef<AutoRecyclerListViewHandler>
 ) {
   const {
     data,
@@ -277,5 +276,15 @@ const styles = StyleSheet.create({
   },
 })
 
-const AutoRecyclerListView = React.forwardRef(AutoRecyclerListViewComponent)
+const AutoRecyclerListViewWithRef = React.forwardRef(
+  AutoRecyclerListViewComponent
+)
+
+function AutoRecyclerListView<T>({
+  ref,
+  ...props
+}: AutoRecyclerListViewWithRefProp<T>) {
+  return <AutoRecyclerListViewWithRef ref={ref} {...props} />
+}
+
 export default React.memo(AutoRecyclerListView)
