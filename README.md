@@ -10,7 +10,7 @@
 
 ### # Using npm
 
-     npm add react-native-autorecyclerlistview
+     npm i react-native-autorecyclerlistview
 
 ## Demo
 
